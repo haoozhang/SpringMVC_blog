@@ -1,0 +1,7 @@
+1. 新建 Maven 项目，导入相关 jar 包
+2. 右键 Add Framework Support，添加 Web App 支持
+3. 编写 Servlet 类用于处理用户请求
+4. 编写对应的 .jsp 文件
+5. web.xml 中注册 Servlet，映射 Servlet 的 url
+6. 配置 Tomcat，部署打包文件
+7. 启动项目，在浏览器中测试

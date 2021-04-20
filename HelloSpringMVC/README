@@ -1,0 +1,37 @@
+1. 新建 Maven 项目，导入相关 jar 包
+2. 右键 Add Framework Support，添加 Web App 支持
+3. 编写 Servlet 类用于处理用户请求
+4. 编写对应的 .jsp 文件
+5. web.xml 中注册 Servlet，映射 Servlet 的 url
+6. 配置 Tomcat，部署打包文件
+7. 启动项目，在浏览器中测试
+
+------
+
+1. 新建 Maven 项目，引入相关依赖
+2. 确保依赖出现在项目的打包文件中 (项目结构-Artifacts)，如果没有，添加 lib 文件夹包含以上依赖
+3. 右键 Add Framework Support，添加 Web App 支持
+4. web.xml 中注册 Spring 提供的 DispatcherServlet，并映射 Servlet 的 url
+5. 编写 springmvc 的配置文件，添加处理映射器、处理器适配器、视图解析器
+6. 编写业务逻辑 controller，实现 Controller 接口
+7. 注册 controller 的 bean 实例
+8. 编写对应的 .jsp 文件
+9. 配置 Tomcat 启动测试
+
+注解实现：
+1. 如上，再避免静态资源过滤
+2. 如上
+3. 如上
+4. 如上
+5. springmvc 配置文件添加自动扫描、mvc 不处理静态资源、mvc 注解驱动，最后添加视图解析器
+6. 业务逻辑 controller 使用 @Controller 注解和 @RequestMapping 注解
+7. 省略，因为自动扫描到  @Controller 组件
+8. 如上
+9. 如上
+
+- SpringMVC 默认加载处理映射器和处理器适配器，不用显式地指定
+
+RestFul:
+- 以 RestfulController 为例
+- @RequestMapping 结合 @PathVariable 使用
+- 隐藏变量，简化路径，更加安全
