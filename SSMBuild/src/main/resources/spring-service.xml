@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 自动扫描 service 层的对象 -->
+    <context:component-scan base-package="com.zhao.service"/>
+
+    <!-- 所有业务类注入到 Spring，可通过配置或注解实现
+         这里是用配置，注解方式就是对 BookServiceImpl 类中的 bookMapper 对象使用 @Autowired 注解，使它自动装配依赖
+    -->
+    <bean id="bookServiceImpl" class="com.zhao.service.BookServiceImpl">
+        <!-- 这里 ref 的对象就是 spring-mapper.xml 文件最后配置的 mapper 接口扫描包注入的 mapper 对象-->
+        <property name="bookMapper" ref="bookMapper"/>
+    </bean>
+
+    <!-- 声明式事务 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>
